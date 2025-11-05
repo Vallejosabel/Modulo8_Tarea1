@@ -55,7 +55,7 @@ def run(argv=None):
             fans
             | "FansToJsonStr" >> beam.Map(json.dumps, ensure_ascii=False)
             | "WriteFansRaw"  >> beam.io.WriteToText(
-                file_path_prefix=f"{out_dir}/raw_fans",
+                file_path_prefix=f"{out_dir}/raw_interaccion_fans",
                 file_name_suffix=".jsonl",
                 shard_name_template="-SSSSS"
             )
@@ -70,7 +70,7 @@ def run(argv=None):
             countries
             | "CountriesToJsonStr" >> beam.Map(json.dumps, ensure_ascii=False)
             | "WriteCountriesRaw"  >> beam.io.WriteToText(
-                file_path_prefix=f"{out_dir}/raw_countries",
+                file_path_prefix=f"{out_dir}/raw_datos_paises",
                 file_name_suffix=".jsonl",
                 shard_name_template="-SSSSS"
             )
