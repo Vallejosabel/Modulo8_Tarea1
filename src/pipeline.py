@@ -82,7 +82,7 @@ def run(argv=None):
     parser.add_argument("--json_glob", default="input_json/*.json")
     parser.add_argument("--csv_path",  default="input_csv/country_data_v2.csv")
     parser.add_argument("--out_raw",   default="output/raw")
-    parser.add_argument("--out_cur",   default="output/tratado")
+    parser.add_argument("--out_tratado",   default="output/tratado")
     parser.add_argument("--do_p1", action="store_true", help="Ejecutar solo Punto 1")
     parser.add_argument("--do_p2", action="store_true", help="Ejecutar solo Punto 2")
     known_args, pipeline_args = parser.parse_known_args(argv)
