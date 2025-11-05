@@ -4,6 +4,7 @@
 import argparse
 import json
 import csv
+import re
 from typing import Iterable, Dict, Any, List
 
 import apache_beam as beam
@@ -76,7 +77,84 @@ def run(argv=None):
             )
         )
 
+    
+# ----------------- Helpers -----------------
+
+#Expresion Regular para RaceID
+RACEID_PATTERN = re.compile(r"([A-Za-z]+)[^\d]*?(\d+)", re.UNICODE)
+
+def normalize_race_id(raw: str) -> str:
+    """
+    Normaliza RaceID a <string><numero> en minúsculas.
+    """
+    if not raw:
+        return raw
+    m = RACEID_PATTERN.search(raw)
+    if m:
+        alpha, num = m.group(1).lower(), m.group(2)
+        return f"{alpha}{num}"
+    # Fallback: minúsculas y sin espacios/guiones/barras si no calza el patrón
+    return re.sub(r"[\s:_\-]+", "", str(raw).lower())
+
+
+class ParseJsonLine(beam.DoFn):
+    def process(self, line: str) -> Iterable[Dict[str, Any]]:
+        s = (line or "").strip()
+        if not s:
+            return
+        try:
+            yield json.loads(s)
+        except Exception:
+            beam.metrics.Metrics.counter("p2_parse", "invalid_json").inc()
+
+
+class StandardizeRaceId(beam.DoFn):
+    def process(self, record: Dict[str, Any]) -> Iterable[Dict[str, Any]]:
+        race = record.get("RaceID")
+        record["RaceID"] = normalize_race_id(race)
+        yield record
+
+
+class FilterDeviceOther(beam.DoFn):
+    def process(self, record: Dict[str, Any]) -> Iterable[Dict[str, Any]]:
+        # Filtrar DeviceType == "Other"
+        if str(record.get("DeviceType", "")).strip() == "Other":
+            beam.metrics.Metrics.counter("p2_filter", "device_other").inc()
+            return  # drop
+        yield record
+
+
+def run(argv=None):
+    parser = argparse.ArgumentParser(description="HRL - Punto 2: Estandarización y Filtrado")
+    parser.add_argument(
+        "--in_glob",
+        default="output/raw/raw_fans-*.jsonl",
+        help="Glob de entrada de fans (JSON Lines) del Punto 1. Default: output/raw/raw_fans-*.jsonl",
+    )
+    parser.add_argument(
+        "--out_dir",
+        default="output/curated",
+        help="Directorio de salida para fans estándar + filtrados. Default: output/curated",
+    )
+    known_args, pipeline_args = parser.parse_known_args(argv)
+    pipeline_options = PipelineOptions(pipeline_args, save_main_session=True)
+
+    out_dir = known_args.out_dir.rstrip("/")
+
+    with beam.Pipeline(options=pipeline_options) as p:
+        (
+            p
+            | "ReadFansRaw"         >> beam.io.ReadFromText(known_args.in_glob)
+            | "ParseJSON"           >> beam.ParDo(ParseJsonLine())
+            | "StdRaceID"           >> beam.ParDo(StandardizeRaceId())   # cup25, race11, league04, etc.
+            | "FilterDeviceOther"   >> beam.ParDo(FilterDeviceOther())   # elimina DeviceType == "Other"
+            | "ToJSONStr"           >> beam.Map(json.dumps, ensure_ascii=False)
+            | "WriteStdFiltered"    >> beam.io.WriteToText(
+                                        file_path_prefix=f"{out_dir}/fans_std_filtered",
+                                        file_name_suffix=".jsonl",
+                                        shard_name_template="-SSSSS"
+                                     )
+        )
+
 if __name__ == "__main__":
     run()
-
-
