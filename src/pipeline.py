@@ -79,10 +79,10 @@ class FilterDeviceOther(beam.DoFn):
 # ----------------- Pipeline principal -----------------
 def run(argv=None):
     parser = argparse.ArgumentParser(description="HRL - Punto 1 + Punto 2 (Apache Beam)")
-    parser.add_argument("--json_glob", default="input_json/*.json")
-    parser.add_argument("--csv_path",  default="input_csv/country_data_v2.csv")
-    parser.add_argument("--out_raw",   default="output/raw")
-    parser.add_argument("--out_tratado",   default="output/tratado")
+    parser.add_argument("--json_glob", default="Modulo8_Tarea1/input_json/*.json")
+    parser.add_argument("--csv_path",  default="Modulo8_Tarea1/input_csv/country_data_v2.csv")
+    parser.add_argument("--out_raw",   default="Modulo8_Tarea1/output/raw")
+    parser.add_argument("--out_tratado",   default="Modulo8_Tarea1/output/tratado")
     parser.add_argument("--do_p1", action="store_true", help="Ejecutar solo Punto 1")
     parser.add_argument("--do_p2", action="store_true", help="Ejecutar solo Punto 2")
     known_args, pipeline_args = parser.parse_known_args(argv)
