@@ -13,7 +13,7 @@ Modulo 8 - Tarea 1
   • Normaliza RaceID 
   • Elimina registros cuando DeviceType == "Other"
   • Escribe salidas:
-      - output/tratado/fans_std_filtered-*.jsonl
+      - output/tratado/fans_filtrado_y_tratado-*.jsonl
 """
 
 import argparse
@@ -130,15 +130,15 @@ def run(argv=None):
 
         # ----------- Punto 2: Tratado -----------
         if known_args.do_p2:
-            fans_std_filtered = (
+            fans_filtrado_y_tratado = (
                 fans
                 | "StdRaceID" >> beam.ParDo(StandardizeRaceId())
                 | "FilterDeviceOther" >> beam.ParDo(FilterDeviceOther())
             )
-            _ = (fans_std_filtered
+            _ = (fans_filtrado_y_tratado
                  | "FansToJSON_CUR" >> beam.Map(json.dumps, ensure_ascii=False)
                  | "WriteFansCUR" >> beam.io.WriteToText(
-                     file_path_prefix=f"{out_tratado}/fans_std_filtered",
+                     file_path_prefix=f"{out_tratado}/fans_filtrado_y_tratado",
                      file_name_suffix=".jsonl",
                      shard_name_template="-SSSSS"))
 
