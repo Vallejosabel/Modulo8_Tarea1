@@ -128,8 +128,8 @@ def run(argv=None):
     parser = argparse.ArgumentParser(description="HRL - Punto 2: Estandarización y Filtrado")
     parser.add_argument(
         "--in_glob",
-        default="output/raw/raw_fans-*.jsonl",
-        help="Glob de entrada de fans (JSON Lines) del Punto 1. Default: output/raw/raw_fans-*.jsonl",
+        default="output/raw/raw_interaccion_fans-*.jsonl",
+        help="Glob de entrada de fans (JSON Lines) del Punto 1. Default: output/raw/raw_interaccion_fans-*.jsonl",
     )
     parser.add_argument(
         "--out_dir",
