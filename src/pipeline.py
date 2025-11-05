@@ -101,7 +101,7 @@ def run(argv=None):
     ]
 
     out_raw = known_args.out_raw.rstrip("/")
-    out_cur = known_args.out_cur.rstrip("/")
+    out_tratado = known_args.out_tratado.rstrip("/")
 
     with beam.Pipeline(options=pipeline_options) as p:
         # Lectura común
@@ -138,7 +138,7 @@ def run(argv=None):
             _ = (fans_std_filtered
                  | "FansToJSON_CUR" >> beam.Map(json.dumps, ensure_ascii=False)
                  | "WriteFansCUR" >> beam.io.WriteToText(
-                     file_path_prefix=f"{out_cur}/fans_std_filtered",
+                     file_path_prefix=f"{out_tratado}/fans_std_filtered",
                      file_name_suffix=".jsonl",
                      shard_name_template="-SSSSS"))
 
