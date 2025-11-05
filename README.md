@@ -15,10 +15,11 @@ Modulo8_Tarea1/
 ├── input_json/          # JSONs de entrada
 │   ├── ...              
 ├── input_csv/           # CSV de enriquecimiento
-│   └── ...              # 
+│   └── ...              
 ├── output/              # Carpeta de salida (Se genera al ejecutar pipeline)
 │   └── raw              # JSONs de salida (interacciones fans y datos demograficos)
 │   └── tratado          # JSONs de salida Estandarizado y Filtrado
+│   └── enriquecido      # JSONs de salida Estandarizado y Filtrado
 ├── src/
 │   └── pipeline.py      # Script principal
 ├── requirements.txt     # Arvhivo de dependencias del pipeline
