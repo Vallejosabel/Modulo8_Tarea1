@@ -1,5 +1,5 @@
 ## Descripción del repositorio
-Tarea número 1 para el **Módulo 8 ** del diplomado de **Ingeniería de Datos**.  
+Tarea número 1 para el Módulo 8 del diplomado de Ingeniería de Datos.  
 El objetivo principal del desarrollo es mostrar:
 
 1. Leer **múltiples archivos JSON** (`input_json/`)  que representan interacciones de fans.
