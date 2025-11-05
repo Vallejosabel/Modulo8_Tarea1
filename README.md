@@ -32,13 +32,17 @@ apache-beam-m8t1/
 Para poder ejecutar el pipeline en colab se deben ejecutar los siguientes comandos:
 
 **Clonar el repo**:
+```
 !git clone https://github.com/Vallejosabel/Modulo8_Tarea1.git
+```
 
 
 
 **Instalar requiriments**:
+```
 %cd Modulo8_Tarea1
 !pip install -r requirements.txt
+```
 
 En este punto pedirá reiniciar la sesión, lo cual permitimos.
 
@@ -46,7 +50,9 @@ La sesión se reiniciará.
 
 
 **Ejecución de Pipeline**:
+```
 !python Modulo8_Tarea1/src/pipeline.py
+```
 
 Parámetros que están dentro del código:
 * **--json_glob"**: "Modulo8_Tarea1/input_json/*.json" -  Carpeta de Json de entrada.
