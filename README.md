@@ -1,6 +1,8 @@
 ## Descripción del repositorio
 Tarea número 1 para el Módulo 8 del diplomado de Ingeniería de Datos.
+
 Personalmente, este desarrollo fue probado en colab de Google.
+
 El objetivo principal del desarrollo es la utilización de Apache Beam:
 
 1. Leer **múltiples archivos JSON** (`input_json/`)  que representan interacciones de fans.
