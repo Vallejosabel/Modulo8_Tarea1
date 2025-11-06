@@ -65,6 +65,8 @@ Parámetros que están dentro del código:
 * **--out_enriquecido**: "Modulo8_Tarea1/output/enriquecido" - Carpeta de Json enriquecido.
 
 __Para el Punto 1 Carga de datos, la salida se encontrará en Modulo8_Tarea1/output/raw.__
+
 __Para el Punto 2 Estandarización y Filtrado de los datos JSON, la salida se encontrará en Modulo8_Tarea1/output/tratado.__
+
 __Para el Punto 3 Enriquecimiento de los datos, la salida se encontrará en Modulo8_Tarea1/output/enriquecido.__
 
