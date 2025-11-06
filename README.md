@@ -53,7 +53,7 @@ En este punto pedirá reiniciar la sesión, lo cual permitimos.
 La sesión se reiniciará.
 
 
-**Ejecución de Pipeline**:
+**Ejecución de Pipeline (en Colab)**:
 
 ```
 !python Modulo8_Tarea1/src/pipeline.py
