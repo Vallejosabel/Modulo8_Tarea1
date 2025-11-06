@@ -38,7 +38,7 @@ Para poder ejecutar el pipeline en colab se deben ejecutar los siguientes comand
 !git clone https://github.com/Vallejosabel/Modulo8_Tarea1.git
 ```
 
-**Instalar requiriments**:
+**Instalar requirements**:
 
 ```
 %cd Modulo8_Tarea1
@@ -62,6 +62,9 @@ Parámetros que están dentro del código:
 * **--csv_path**: "Modulo8_Tarea1/input_csv/country_data_v2.csv" - Carpeta de Csv de entrada.
 * **--out_raw**: "Modulo8_Tarea1/output/raw" - Carpeta de Json y Csv de salida.
 * **--out_tratado**: "Modulo8_Tarea1/output/tratado" - Carpeta de Json estandarizado y filtrado.
-* **--out_enriquecido**: ""Modulo8_Tarea1/output/enriquecido"" - Carpeta de Json enriquecido.
-```
+* **--out_enriquecido**: "Modulo8_Tarea1/output/enriquecido" - Carpeta de Json enriquecido.
+
+__Para el Punto 1 Carga de datos, la salida se encontrará en Modulo8_Tarea1/output/raw.__
+__Para el Punto 2 Estandarización y Filtrado de los datos JSON, la salida se encontrará en Modulo8_Tarea1/output/tratado.__
+__Para el Punto 3 Enriquecimiento de los datos, la salida se encontrará en Modulo8_Tarea1/output/enriquecido.__
 
