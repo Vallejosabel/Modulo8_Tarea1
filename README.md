@@ -62,5 +62,6 @@ Parámetros que están dentro del código:
 * **--csv_path**: "Modulo8_Tarea1/input_csv/country_data_v2.csv" - Carpeta de Csv de entrada.
 * **--out_raw**: "Modulo8_Tarea1/output/raw" - Carpeta de Json y Csv de salida.
 * **--out_tratado**: "Modulo8_Tarea1/output/tratado" - Carpeta de Json estandarizado y filtrado.
+* **--out_enriquecido**: ""Modulo8_Tarea1/output/enriquecido"" - Carpeta de Json enriquecido.
 ```
 
