@@ -1,6 +1,7 @@
 ## Descripción del repositorio
-Tarea número 1 para el Módulo 8 del diplomado de Ingeniería de Datos.  
-El objetivo principal del desarrollo es mostrar:
+Tarea número 1 para el Módulo 8 del diplomado de Ingeniería de Datos.
+Personalmente, este desarrollo fue probado en colab de Google.
+El objetivo principal del desarrollo es la utilización de Apache Beam:
 
 1. Leer **múltiples archivos JSON** (`input_json/`)  que representan interacciones de fans.
 2. Leer un **archivo CSV** (`input_csv/`) con información demográfica de países.
@@ -30,7 +31,7 @@ Modulo8_Tarea1/
 
 ## Ejecución del Pipeline
 
-Para poder ejecutar el pipeline en colab se deben ejecutar los siguientes comandos:
+Para poder ejecutar el pipeline en __colab__ se deben ejecutar los siguientes comandos:
 
 **Clonar el repo**:
 
