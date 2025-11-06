@@ -73,3 +73,7 @@ __Para el Punto 2 Estandarización y Filtrado de los datos JSON, la salida se en
 
 __Para el Punto 3 Enriquecimiento de los datos, la salida se encontrará en Modulo8_Tarea1/output/enriquecido.__
 
+Muchas Gracias!
+
+Abel Vallejos.
+
