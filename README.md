@@ -31,7 +31,7 @@ Modulo8_Tarea1/
 
 ---
 
-## Ejecución del Pipeline
+## Ejecución del Pipeline (en Colab)
 
 Para poder ejecutar el pipeline en __colab__ se deben ejecutar los siguientes comandos:
 
@@ -53,7 +53,7 @@ En este punto pedirá reiniciar la sesión, lo cual permitimos.
 La sesión se reiniciará.
 
 
-**Ejecución de Pipeline (en Colab)**:
+**Ejecución de pipeline**:
 
 ```
 !python Modulo8_Tarea1/src/pipeline.py
